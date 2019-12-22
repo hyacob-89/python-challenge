@@ -1,7 +1,7 @@
 # import OS and CSV modules
 import os
 import csv
-import re
+
 
 
 # path to collect data from PyBank folder
