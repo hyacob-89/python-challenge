@@ -8,13 +8,12 @@ csvpath=os.path.join('..','PyPoll','election_data.csv')
 PollDict = {}
 with open(csvpath, newline='') as csvfile:
     csv_reader = csv.DictReader(csvfile,delimiter=',')
-    #csv_header = next(csv_reader)
 
-
+# add KPI header
     print('\nElection Results')
     print('-------------------------')
     
-    
+# gather dictionary keys and values into 'PollDict' dictionary.    
     for row in csv_reader:
 
         if row['Candidate'] in PollDict.keys():
@@ -23,19 +22,19 @@ with open(csvpath, newline='') as csvfile:
             PollDict[row['Candidate']]=1
     
 
-
+# calculate total votes and print into KPI.
     for j in PollDict.values():
 
         total_votes = sum(PollDict.values())
         
 
     print(f'Total Votes: {total_votes}')
-    print('-------------------------')        
+    print('-------------------------')
+
       
-    
+# calculate individual stats plus winner and print into KPI.   
     for i, j in PollDict.items():
 
-        total_votes = sum(PollDict.values())
         percentage = (j/total_votes)*100
         winner_name = max(PollDict, key = PollDict.get)
 
